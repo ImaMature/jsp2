@@ -27,6 +27,11 @@
 	
 	<!-- 다음 우편 주소 API js 호출 -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	
+	<!-- 아임 포트 결제 api  -->
+	<!-- jQuery는 헤더에 있음 -->
+	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+	
 	<!-- 재고 차감 메소드 -->
 	<% ProductDao.getproductDao().stockupdate(); %>
 	<%

@@ -17,11 +17,6 @@
 	<!-- 헤더 -->
 	<%@include file ="../header.jsp" %>
 	
-	<!-- 아임 포트 결제 api  -->
-	<!-- jQuery는 헤더에 있음 -->
-	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
-	
-	
 	<%
 		String sname = "cart"+loginid;
 		ArrayList<Cart> carts = (ArrayList<Cart>)session.getAttribute(sname);

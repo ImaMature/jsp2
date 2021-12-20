@@ -99,7 +99,7 @@
 					<%
 						//저 위에 64번째 줄 ArrayList에서 갖다씀
 						//out.print(boards.size()); //DB에서 오류나면 사이즈가 0으로 반환
-						if (boards.size() == 0){%>
+						if (boards.size() == 0){%> <!-- 검색 결과가 없다면 -->
 							<tr>
 								<td colspan = "5" style="text-align: center;">검색 결과가 없습니다.</td>
 							</tr>	
@@ -107,7 +107,7 @@
 						}
 					%>	
 					
-					<%	
+					<%	//검색결과가 있다면
 						for(Board temp : boards) {	
 					%>	
 						<tr>
