@@ -858,6 +858,8 @@ $(window).scroll(function(){ //스크롤 이벤트
 
 /* 주문 목록 스크롤 end */
 
+/* 차트 start */
 
+/* 차트 end */
 
 
