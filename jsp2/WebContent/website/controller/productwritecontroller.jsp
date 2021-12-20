@@ -5,7 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String folderpath = "C:/Users/504/git/html2/jsp2/WebContent/website/upload";
+	String folderpath = "C:\\Users\\504\\git\\jsp2\\jsp2\\WebContent\\website\\upload";
 	//이 친구만 직접경로 서버가 다운되면 다 사라지기 때문 새로고침 필요X
 	MultipartRequest multipartRequest = new MultipartRequest(
 												request, 

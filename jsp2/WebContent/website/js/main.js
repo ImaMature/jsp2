@@ -929,7 +929,7 @@ for(var i =0; i<keys.length; i++) { //키 개수 만큼 반복
 						datasets : 
 						[							// 계열 추가 (중괄호당 하나씩) [{계열1}, {계열2}, {계열3}....]
 							{//데이터							
-							label : '제품 등록수',			// 계열 명				 
+							label : '날짜별 주문수',		// 계열 명				 
 							data : valueval,			// 계열 데이터
 							backgroundColor: [	// 계열색상
 					                'rgba(255, 99, 132, 0.2)',
