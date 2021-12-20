@@ -1,0 +1,21 @@
+1. boardlist.jsp에 있는 int startrow가 이해가 안갑니다.
+
+어째서 현재 페이지의 시작번호가 0인지 10인지
+DB에 넣어봐도 이해가 안가요
+컬럼 값이 아니라 레코드의 인덱스 값이라서 0부터 시작이다.
+
+2. main.js 의 아이디 중복 ajax에서 #id를 받아오는 건 이해가 가는데
+jsp에서 id = id인게 하나여야만 해당 function을 쓸 수 있지 않은지
+여러개도 사실 가능한데,
+기능에 따라서 id값으로 구분해야한다.
+
+3. 페이징할때 key, keyvalue를 넣는 정확한 이유? 
+검색했을때 페이지 이돟을 상정하기 때문이다.
+검색안했을때 페이지 이동은 if(keyword =null)
+그래서 이전, 다음 코드가 3줄이나되는것이다.
+
+
+4. boardlist.jsp 에서 pagenum은 어디서 가져오나요
+current page와 pagenum은 사실 똑같다.
+current page를 pagenum으로 해서 코드를 줄여도 된다.
+단 그럴때 String 타입인 것을 int타입으로 형변환해주어야 한다.
