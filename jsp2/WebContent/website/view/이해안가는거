@@ -19,3 +19,4 @@ jsp에서 id = id인게 하나여야만 해당 function을 쓸 수 있지 않은
 current page와 pagenum은 사실 똑같다.
 current page를 pagenum으로 해서 코드를 줄여도 된다.
 단 그럴때 String 타입인 것을 int타입으로 형변환해주어야 한다.
+
