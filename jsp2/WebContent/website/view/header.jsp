@@ -16,21 +16,26 @@
 	<!-- 부트스트랩 jQuery -->
 	<!-- jQuery가 있어야 ajax실행 가능 -->
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script> <!-- slim이 있으면 실행 안됨 -->
+	
+	<!-- 부트스트랩 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
 	
 	
-	
-	<!-- 본인 js 호출하기 -->
-	
-	<script src="../../js/main.js"></script>
-	
 	<!-- 다음 우편 주소 API js 호출 -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	
-	<!-- 아임 포트 결제 api  -->
+	<!-- 아임 포트(IMport) 결제 api  -->
 	<!-- jQuery는 헤더에 있음 -->
 	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+	
+	<!-- 차트 chart api 추가하기 -->
+	<!-- [강사] [오후 1:21] https://www.chartjs.org/ 사이트 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	
+	<!-- 본인 js 호출하기 (본인꺼를 아래에 둬야 다른 api들이 먼저 작동)-->
+	<script src="../../js/main.js"></script>
+	
 	
 	<!-- 재고 차감 메소드 -->
 	<% ProductDao.getproductDao().stockupdate(); %>
@@ -63,7 +68,7 @@
 								if(loginid.equals("admin")){ //로그인 되어있으면서 관리자이면
 						%>
 								
-								<li><a href="/jsp2/WebContent/website/view/admin/dashboard.jsp" class="header_menu"> 관리자 </a></li>
+								<li><a href="../view/admin/dashboard.jsp" class="header_menu"> 관리자 </a></li>
 						<%
 								} 
 						%>		

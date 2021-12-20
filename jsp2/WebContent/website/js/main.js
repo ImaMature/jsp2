@@ -856,12 +856,117 @@ $(window).scroll(function(){ //스크롤 이벤트
 	}
 	
 });
-
-
 /* 주문 목록 스크롤 end */
 
-/* 차트 start */
 
-/* 차트 end */
+/* json start */
+//alert("스크립트 시작"); 
+
+//js에서 변수 저장하는 방법
+	//1. var 변수명 = 값		: 하나의 값 저장
+	//2. var 배열명 = []		: 여러개 값 저장
+		//var arr = [1, 2, 3, 4];
+	//3. var json = {}		: 여러개 엔트리 (키:값) 저장
+		//json 값 호출시 => 키를 이용함
+			//json 변수명 [키] => 값 호출
+		//json 키 호출시 => Object.keys()
+			//Object.keys(json변수명) : 모든 키 호출
+		//json 키 활용 [ 배열과 중첩 사용 가능 ]	
+			//키 : [    ]
+		//DB데이터 - >json 변환 [ json 통신 ]	
+
+
+/*// 배열 형식 []
+var arr = [1, 2, 3, 4];*/
+
+/*// json 형식 {} [ java map ]
+var test = { 'id' : 'qweqwe' , 'password' : "qweqwe"} //로그인 누르면 뜸
+		//키 : 값 => 한쌍 [엔트리]
+		
+var keys = Object.keys(test);
+	//Object.keys(json변수명) : 모든 키 호출
+
+for(var i =0; i<keys.length; i++) { //키 개수 만큼 반복
+	var key = keys[i];
+	alert("키 : " + key + " 값 : " + test[key]); //키 출력
+}	*/	
+
+//JSON형식으로 JSON가져오기 (예시로 한번 해본거임)
+//$.getJSON('경로 / 파일명', function(json인수명){ });
+										//productchart.jsp에서 인수 가져옴
+	
+	//alert("asdasd");
+	$.getJSON('../../controller/productchartcontroller.jsp', function(jsonObject){
+		// json 형식 {} [ java map ]
+			//alert("asdasd2");
+			var keyval = [ ]; //모든 키(key)를 저장하는 배열
+			var valueval = [ ]; //모든 값(value)을 저장하는 배열
+			
+			var keys = Object.keys( jsonObject );  
+				//Object.keys(json변수명) : 모든 키 호출
+			
+			for( var i =0 ; i<keys.length; i++ ){ //키 개수 만큼 반복
+				keyval[i] = keys[i];
+				valueval[i] = jsonObject[keyval[i]];
+				//alert( "키 : " + key + "   값 : " + jsonObject[key] ); //키 출력
+			}
+			//alert(keyval);
+			//alert(valueval);
+				/* 차트 만들기 start */
+				//차트 api (chart.js)를 끌고 와야됨 그래야 차트 만들 수 있음
+	
+				//1. 차트를 표시할 위치 선정 [canvas 태그 id와 동일.]
+				var context = document.getElementById('myChart').getContext('2d');
+																//api에 있는 메소드
+				//alert(context);
+				//2. 차트 변수 만들기
+				//예시) var 차트이름 = new Chart("차트위치", {차트속성 : 값, 차트속성2 : 값2, 차트속성3 : 값3.....});
+				
+				var myChart = new Chart(context, {
+					type : 'bar',							// 차트의 형태 [bar : 막대차트 // line : 선차트 등등..]
+					data : {								// 차트에 들어갈 데이터 [ 가로축, 세로축, 계열 값 ] start		
+						labels : keyval,					// 가로축
+						datasets : 
+						[							// 계열 추가 (중괄호당 하나씩) [{계열1}, {계열2}, {계열3}....]
+							{//데이터							
+							label : '제품 등록수',			// 계열 명				 
+							data : valueval,			// 계열 데이터
+							backgroundColor: [	// 계열색상
+					                'rgba(255, 99, 132, 0.2)',
+					                'rgba(54, 162, 235, 0.2)',
+					                'rgba(255, 206, 86, 0.2)',
+					                'rgba(75, 192, 192, 0.2)',
+					                'rgba(153, 102, 255, 0.2)',
+					                'rgba(255, 159, 64, 0.2)'
+					            ],
+							borderColor: [	// 계열 테두리 색상
+					                'rgba(255, 99, 132, 1)',
+					                'rgba(54, 162, 235, 1)',
+					                'rgba(255, 206, 86, 1)',
+					                'rgba(75, 192, 192, 1)',
+					                'rgba(153, 102, 255, 1)',
+					                'rgba(255, 159, 64, 1)'
+					            ],
+					      	borderWidth: 1	// 계열 테두리 굵기
+							},
+						]	
+					},
+					options:{ //차트 옵션 [ 1. y축 0부터 시작 ]
+						scales : {
+							yAxes:[ // y: 세로축
+								{
+									ticks:{
+										beginAtZero:true //기본 값 : 0부터 시작
+									}
+								}
+							]
+						}
+					}
+				});
+				/* 차트 만들기 end */
+		});
+/* json end */
+
+
 
 

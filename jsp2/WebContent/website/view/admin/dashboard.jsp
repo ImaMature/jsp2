@@ -35,6 +35,7 @@
 			</form>
 		
 			<a href="productwrite.jsp"><button>제품 등록</button></a>
+			<a href="productchart.jsp"><button>제품 통계</button></a>
 			
 			<h3>제품 목록</h3>
 			<table  class="table">
