@@ -36,6 +36,8 @@
 		
 			<a href="productwrite.jsp"><button>제품 등록</button></a>
 			<a href="productchart.jsp"><button>제품 통계</button></a>
+			<!-- 백신접종 api한번 끌어와보기 (api 테스트 해보느ㅜㄴ거임) -->
+			<a href="vaccineApi.jsp"><button>백신 접종</button></a>
 			
 			<h3>제품 목록</h3>
 			<table  class="table">

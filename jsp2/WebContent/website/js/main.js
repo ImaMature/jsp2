@@ -859,7 +859,8 @@ $(window).scroll(function(){ //스크롤 이벤트
 /* 주문 목록 스크롤 end */
 
 
-/* json start */
+/* 주문 그래프 start*/
+/* json start (json으로 차트 불러오는거임)*/
 //alert("스크립트 시작"); 
 
 //js에서 변수 저장하는 방법
@@ -893,10 +894,9 @@ for(var i =0; i<keys.length; i++) { //키 개수 만큼 반복
 
 //JSON형식으로 JSON가져오기 (예시로 한번 해본거임)
 //$.getJSON('경로 / 파일명', function(json인수명){ });
-										//productchart.jsp에서 인수 가져옴
-	
+										//productchart.jsp에서 인수 가져옴	
 	//alert("asdasd");
-	$.getJSON('../../controller/productchartcontroller.jsp', function(jsonObject){
+	$.getJSON("../../controller/productchartcontroller.jsp?type=1", function(jsonObject){
 		// json 형식 {} [ java map ]
 			//alert("asdasd2");
 			var keyval = [ ]; //모든 키(key)를 저장하는 배열
@@ -966,7 +966,91 @@ for(var i =0; i<keys.length; i++) { //키 개수 만큼 반복
 				/* 차트 만들기 end */
 		});
 /* json end */
+/*주문 그래프 end*/
 
 
+/* 제품별 판매량 그래프 start */
+//https://www.chartjs.org/docs/latest/charts/line.html 차트 js 양식들 있는 사이트
+
+$.getJSON("../../controller/productchartcontroller.jsp?type=2", function(jsonObject){
+	
+	var productname = [ ]; //모든 키(key)를 저장하는 배열 (여기선 제품별 이름 배열)
+	var productcount = [ ]; //모든 값(value)을 저장하는 배열 ( 여기선 제품별 판매량 배열)
+	
+	var keys2 = Object.keys( jsonObject );  
+		//Object.keys(json변수명) : 모든 키 호출
+	
+	for( var i =0 ; i<keys2.length; i++ ){ //키 개수 만큼 반복
+		//alert(keys2[i]);
+		productname[i] = keys2[i];							//json변수명에 있는 모든 키를 이름 배열에 저장
+		productcount[i] = jsonObject[productname[i]];		//json변수명에 있는 모든 값을 판매량 배열에 저장
+										//json변수명 [ 키 ] => 값
+	}
+	
+	var context2 = document.getElementById('productchart').getContext('2d');
+	var myChart2 = new Chart(context2, {
+		type : 'line',						// 차트의 형태 [bar : 막대차트 // line : 선차트 등등..]
+			data : {						// 차트에 들어갈 데이터 [ 가로축, 세로축, 계열 값 ] start		
+				labels : productname,			// 가로축
+				datasets : 
+				[							
+					{						// 계열 추가 (중괄호당 하나씩) [{계열1}, {계열2}, {계열3}....]
+					label : '제품별 판매량',	// 계열 명				 
+					data : productcount			// 계열 데이터
+					}
+				]
+			}
+	});
+});
+
+/* 제품별 판매량 그래프 end */
+
+/* 제품별 날짜별 판매량 그래프 start*/
+//productchart.jsp에 있음
+function pchange(){
+	//alert("목록 변경");
+	
+	//제품의 제품번호 가져오기
+	//$("#pselect").val();
+	//alert($("#pselect").val());
+	
+	var p_num = $("#pselect").val(); //해당 아이디의 값 가져오기 (productchart.jsp에 있음)
+	
+	$.getJSON('../../controller/productchartcontroller.jsp?type=3&p_num='+p_num, function(jsonObject){
+	//alert(p_num);	
+	
+		alert(jsonObject);
+		var productdate = [ ]; //모든 키(key)를 저장하는 배열 (여기선 제품별 이름 배열)
+		var productdatecount = [ ]; //모든 값(value)을 저장하는 배열 ( 여기선 제품별 판매량 배열)
+		var keys3 = Object.keys(jsonObject);  
+			//Object.keys(json변수명) : 모든 키 호출
+		//alert(keys3);
+		for( var i =0 ; i<keys3.length; i++ ){ //키 개수 만큼 반복
+			//alert(key3[i]);
+			productdate[i] = keys3[i];							//json변수명에 있는 모든 키를 이름 배열에 저장
+			productdatecount[i] = jsonObject[productdate[i]];		//json변수명에 있는 모든 값을 판매량 배열에 저장
+											//json변수명 [ 키 ] => 값
+		}
+	
+	
+		//제품별 판매량 그래프
+		var context3 = document.getElementById('productdatechart').getContext('2d');
+		var myChart3 = new Chart(context3, {
+		type : 'line',						// 차트의 형태 [bar : 막대차트 // line : 선차트 등등..]
+			data : {						// 차트에 들어갈 데이터 [ 가로축, 세로축, 계열 값 ] start		
+				labels : productdate,			// 가로축
+				datasets : 
+				[							
+					{						// 계열 추가 (중괄호당 하나씩) [{계열1}, {계열2}, {계열3}....]
+					label : '제품별 판매량',	// 계열 명				 
+					data : productdatecount		// 계열 데이터
+					}
+				]
+			}
+		});
+		
+	});
+}
+/* 제품별 날짜별 판매량 그래프 end */
 
 
