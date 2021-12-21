@@ -17,7 +17,12 @@
 	<%@include file="../header.jsp" %>
 	
 	<div class="container">
-		<table class="table">
+	
+		
+		
+		
+		<table class="table mt-3">
+
 		<%
 			//1. 요청 url 가져오기
 			try{
@@ -52,19 +57,30 @@
 						<th>시설이름</th>
 						<th>주소</th>
 						<th>전화번호</th>
-						<th>지역센터이름</th>
+						<th>위도</th>
+						<th>경도</th>
+						<th></th>
 					</tr>				
 				</thead>
 		<%		for(int i =0; i<vaccineArray.size(); i++){
 					JSONObject contents = (JSONObject) vaccineArray.get(i);
 					//System.out.println("contents : " +contents);
+					
+					//map에 i값을 붙여서 식별하기
 		%>
 				<tbody>
 					<tr>
 						<td><%=contents.get("facilityName") %></td>
 						<td><%=contents.get("address") %></td>
 						<td><%=contents.get("phoneNumber") %></td>
-						<td><%=contents.get("centerName") %></td>
+						<td><%=contents.get("lat") %></td>
+						<td><%=contents.get("lng") %></td>
+						<td> 
+							<button id="mapbtn" class="btn btn-dark" onclick="map(<%=i%>, <%=contents.get("lat") %>, <%=contents.get("lng") %>);">지도보기</button>
+						</td>
+					</tr>
+					<tr id="mapdiv<%=i %>" style="hi">
+						<td colspan="6"><div id="map<%=i %>" style="width:100%;"></div></td>
 					</tr>
 				</tbody>
 				

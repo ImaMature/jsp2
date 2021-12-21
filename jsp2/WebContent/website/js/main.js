@@ -1054,3 +1054,29 @@ function pchange(){
 /* 제품별 날짜별 판매량 그래프 end */
 
 
+/* 카카오 지도 api start */
+function map(i, lat, lng){
+	
+	//alert(i)
+	var check =  document.getElementById('map'+i).innerHTML;
+	if( check == ""){
+		document.getElementById('map'+i).style= "height:450px";
+	var mapContainer = document.getElementById('map'+i), // 지도를 표시할 곳 +i를 붙여서 식별 
+	    mapOption = { 
+	        center: new kakao.maps.LatLng(lat, lng), // 지도의 중심좌표
+	        level: 3 // 지도의 확대 레벨
+	    };
+	
+	// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+	var map = new kakao.maps.Map(mapContainer, mapOption); 
+	}
+	else{
+		alert(" 다시 버튼 눌렀어");
+		document.getElementById('map'+i).innerHTML = '';
+		document.getElementById('map'+i).style= "height:0px";
+	}
+			
+}
+/* 카카오 지도 api end */
+
+

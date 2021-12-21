@@ -33,6 +33,10 @@
 	<!-- [강사] [오후 1:21] https://www.chartjs.org/ 사이트 -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 	
+	<!-- 카카오 지도 api (js?appkey= 에 내 자바스크립트 키 넣기) -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0e5c8f069f28a97af84bf0e74572de71"></script>
+		
+	
 	<!-- 본인 js 호출하기 (본인꺼를 아래에 둬야 다른 api들이 먼저 작동)-->
 	<script src="../../js/main.js"></script>
 	
