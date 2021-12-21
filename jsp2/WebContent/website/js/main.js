@@ -1058,8 +1058,11 @@ function pchange(){
 function map(i, lat, lng){
 	
 	//alert(i)
+	//함수 하나 만들어서 
 	var check =  document.getElementById('map'+i).innerHTML;
+	//기본값이 null이면
 	if( check == ""){
+		//지도 나타낼 공간 만들기
 		document.getElementById('map'+i).style= "height:450px";
 	var mapContainer = document.getElementById('map'+i), // 지도를 표시할 곳 +i를 붙여서 식별 
 	    mapOption = { 
@@ -1067,11 +1070,13 @@ function map(i, lat, lng){
 	        level: 3 // 지도의 확대 레벨
 	    };
 	
-	// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+	// 지도를 표시할 div와  지도 옵션으로 지도를 생성합니다
 	var map = new kakao.maps.Map(mapContainer, mapOption); 
 	}
 	else{
-		alert(" 다시 버튼 눌렀어");
+		//뭔가 있다면
+		//alert(" 다시 버튼 눌렀어");
+		//내용 비우고, 공간 줄이기
 		document.getElementById('map'+i).innerHTML = '';
 		document.getElementById('map'+i).style= "height:0px";
 	}
