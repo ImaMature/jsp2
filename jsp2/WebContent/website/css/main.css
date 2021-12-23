@@ -136,3 +136,17 @@ body{
 	overflow: auto; /* 내용물 넘쳤을 때 스크롤 알아서 만듦*/
 }
 
+/*받는 사람에서 보이는 아이디*/
+.profile{
+	font-family:'Pretendard-Regular';
+	font-size: 0.8rem;
+	padding-left: 2px;
+}
+
+.inchat{
+	background: linear-gradient(to right, #fefcea 0%,#f1da36 100%);
+}
+.outchat{
+	background: linear-gradient(to right, #ff3019 0%,#cf0404 100%);
+	color:white;
+}
