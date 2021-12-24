@@ -150,3 +150,9 @@ body{
 	background: linear-gradient(to right, #ff3019 0%,#cf0404 100%);
 	color:white;
 }
+
+.roomstart{
+	font-family: 'Pretendard-Regular';
+	font-size:0.8rem;
+	background: #eeeeee;
+}

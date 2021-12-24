@@ -92,7 +92,7 @@
 				</div>
 			</header>
 			<!-- 메인메뉴 -->
-			<nav class="navbar navbar-expand-lg navbar-light bg-white"">
+			<nav class="navbar navbar-expand-lg navbar-light bg-white">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-toggle="#main_menu">
 					<span class="navbar-toggler-icon"></span>
 				</button>
